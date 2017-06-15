@@ -9,6 +9,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 gem 'activesupport'
 gem 'open-uri-cached'
 gem 'require_all'
+gem 'roman-numerals'
 gem 'scraped', github: 'everypolitician/scraped'
 gem 'scraperwiki', github: 'openaustralia/scraperwiki-ruby',
                    branch: 'morph_defaults'

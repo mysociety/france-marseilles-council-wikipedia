@@ -5,6 +5,7 @@ require 'scraped'
 require 'scraperwiki'
 require 'active_support'
 require 'active_support/core_ext/string'
+require 'roman-numerals'
 
 require 'open-uri/cached'
 OpenURI::Cache.cache_path = '.cache'
@@ -46,9 +47,7 @@ class Councillor < Scraped::HTML
   end
 
   field :area_id do
-    a = noko.xpath('td[4]/a/abbr/text()|td[4]/a/text()').text.tidy
-    binding.pry if a.to_s.empty?
-    a
+    RomanNumerals.to_decimal noko.xpath('td[4]/a/abbr/text()|td[4]/a/text()').text.tidy
   end
 
   private
